@@ -1,0 +1,1113 @@
+/* =========================================================
+   CONSTELLATION HERO
+   Interactive 3D AI / Systems Visualization
+   ========================================================= */
+
+.constellation-wrapper {
+  position: relative;
+  width: min(100%, 560px);
+  height: 560px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  perspective: 1400px;
+
+  isolation: isolate;
+  user-select: none;
+}
+
+/* =========================================================
+   AMBIENT LIGHT
+   ========================================================= */
+
+.constellation-ambient-glow {
+  position: absolute;
+  inset: 8%;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(112, 82, 255, 0.2) 0%,
+    rgba(46, 190, 255, 0.08) 34%,
+    transparent 70%
+  );
+
+  filter: blur(35px);
+
+  animation: constellationGlow 5s ease-in-out infinite alternate;
+
+  pointer-events: none;
+}
+
+@keyframes constellationGlow {
+  from {
+    transform: scale(0.94);
+    opacity: 0.65;
+  }
+
+  to {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   MAIN SCENE
+   ========================================================= */
+
+.constellation-scene {
+  position: relative;
+
+  width: 500px;
+  height: 500px;
+
+  transform-style: preserve-3d;
+
+  transition: transform 0.18s cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  will-change: transform;
+}
+
+/* =========================================================
+   BACKGROUND GRID
+   ========================================================= */
+
+.constellation-grid {
+  position: absolute;
+  inset: 8%;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(rgba(89, 104, 180, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 104, 180, 0.08) 1px, transparent 1px);
+
+  background-size: 28px 28px;
+
+  mask-image: radial-gradient(circle, black 20%, transparent 72%);
+
+  -webkit-mask-image: radial-gradient(circle, black 20%, transparent 72%);
+
+  transform: translateZ(-30px);
+}
+
+/* =========================================================
+   PARTICLES
+   ========================================================= */
+
+.constellation-particles {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  transform: translateZ(-10px);
+}
+
+.constellation-particle {
+  position: absolute;
+
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: rgba(111, 218, 255, 0.75);
+
+  box-shadow:
+    0 0 8px rgba(86, 208, 255, 0.8),
+    0 0 16px rgba(86, 208, 255, 0.25);
+
+  animation: particleFloat linear infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translate3d(0, 10px, 0) scale(0.7);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translate3d(8px, -18px, 0) scale(1);
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.65;
+  }
+
+  100% {
+    transform: translate3d(-5px, -40px, 0) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   ORBIT RINGS
+   ========================================================= */
+
+.orbit {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(95, 110, 255, 0.42);
+
+  transform-style: preserve-3d;
+
+  pointer-events: none;
+}
+
+.orbit-outer {
+  width: 430px;
+  height: 430px;
+
+  margin-left: -215px;
+  margin-top: -215px;
+
+  animation: orbitRotate 22s linear infinite;
+
+  box-shadow: 0 0 20px rgba(97, 78, 255, 0.06);
+}
+
+.orbit-middle {
+  width: 350px;
+  height: 350px;
+
+  margin-left: -175px;
+  margin-top: -175px;
+
+  border-color: rgba(37, 216, 255, 0.28);
+
+  animation: orbitRotateReverse 17s linear infinite;
+}
+
+.orbit-inner {
+  width: 270px;
+  height: 270px;
+
+  margin-left: -135px;
+  margin-top: -135px;
+
+  border-style: dashed;
+  border-color: rgba(133, 99, 255, 0.24);
+
+  animation: orbitRotate 12s linear infinite;
+}
+
+.orbit-tilted {
+  width: 420px;
+  height: 190px;
+
+  margin-left: -210px;
+  margin-top: -95px;
+
+  border-color: rgba(32, 217, 255, 0.25);
+}
+
+.orbit-tilted-one {
+  transform: rotateX(66deg) rotateZ(25deg);
+  animation: tiltedOrbitOne 18s linear infinite;
+}
+
+.orbit-tilted-two {
+  transform: rotateX(68deg) rotateZ(-30deg);
+
+  border-color: rgba(130, 91, 255, 0.25);
+
+  animation: tiltedOrbitTwo 24s linear infinite reverse;
+}
+
+@keyframes orbitRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitRotateReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes tiltedOrbitOne {
+  from {
+    transform: rotateX(66deg) rotateZ(25deg) rotate(0deg);
+  }
+
+  to {
+    transform: rotateX(66deg) rotateZ(25deg) rotate(360deg);
+  }
+}
+
+@keyframes tiltedOrbitTwo {
+  from {
+    transform: rotateX(68deg) rotateZ(-30deg) rotate(0deg);
+  }
+
+  to {
+    transform: rotateX(68deg) rotateZ(-30deg) rotate(360deg);
+  }
+}
+
+/* =========================================================
+   CONNECTION LINES
+   ========================================================= */
+
+.constellation-lines {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  pointer-events: none;
+
+  transform: translateZ(15px);
+}
+
+.constellation-line {
+  stroke: rgba(119, 99, 255, 0.34);
+  stroke-width: 1;
+
+  stroke-dasharray: 5 8;
+
+  animation: lineFlow 3s linear infinite;
+
+  transition:
+    stroke 0.3s ease,
+    stroke-width 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.constellation-line.line-active {
+  stroke: rgba(64, 220, 255, 0.95);
+  stroke-width: 2;
+
+  stroke-dasharray: 4 5;
+}
+
+.constellation-cross-line {
+  stroke: rgba(91, 102, 180, 0.13);
+  stroke-width: 0.7;
+
+  transition:
+    stroke 0.3s ease,
+    stroke-width 0.3s ease;
+}
+
+.constellation-cross-line.cross-active {
+  stroke: rgba(118, 210, 255, 0.42);
+  stroke-width: 1.5;
+}
+
+@keyframes lineFlow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+/* =========================================================
+   CENTRAL AI CORE
+   ========================================================= */
+
+.ai-core {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 120px;
+  height: 120px;
+
+  margin-left: -60px;
+  margin-top: -60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateZ(70px);
+
+  z-index: 20;
+}
+
+.ai-core-halo {
+  position: absolute;
+  inset: -30px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(102, 82, 255, 0.26),
+    rgba(38, 209, 255, 0.08) 45%,
+    transparent 72%
+  );
+
+  filter: blur(10px);
+
+  animation: coreHalo 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes coreHalo {
+  from {
+    transform: scale(0.85);
+    opacity: 0.55;
+  }
+
+  to {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+.ai-core-inner {
+  position: relative;
+
+  width: 76px;
+  height: 76px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: radial-gradient(
+    circle at 35% 30%,
+    rgba(106, 221, 255, 0.3),
+    rgba(64, 51, 150, 0.18) 45%,
+    rgba(4, 12, 35, 0.96) 72%
+  );
+
+  border: 1px solid rgba(71, 220, 255, 0.9);
+
+  box-shadow:
+    0 0 20px rgba(52, 216, 255, 0.5),
+    inset 0 0 25px rgba(91, 83, 255, 0.25);
+
+  animation: coreFloat 4s ease-in-out infinite;
+}
+
+@keyframes coreFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.ai-core-ring {
+  position: absolute;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(126, 98, 255, 0.7);
+
+  pointer-events: none;
+}
+
+.ai-core-ring-one {
+  inset: -8px;
+
+  animation: coreRing 7s linear infinite;
+}
+
+.ai-core-ring-two {
+  inset: -17px;
+
+  border-color: rgba(36, 218, 255, 0.35);
+
+  animation: coreRingReverse 10s linear infinite;
+}
+
+@keyframes coreRing {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes coreRingReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.ai-core-orbit {
+  position: absolute;
+
+  width: 42px;
+  height: 12px;
+
+  border: 1px solid rgba(71, 216, 255, 0.75);
+
+  border-radius: 50%;
+
+  transform: rotateX(65deg);
+
+  animation: coreOrbit 4s linear infinite;
+}
+
+@keyframes coreOrbit {
+  from {
+    transform: rotateX(65deg) rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateX(65deg) rotateZ(360deg);
+  }
+}
+
+.ai-core-symbol {
+  position: relative;
+
+  font-family: "Syne", sans-serif;
+
+  font-size: 18px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  color: #ffffff;
+
+  text-shadow:
+    0 0 10px rgba(80, 221, 255, 0.9),
+    0 0 25px rgba(108, 82, 255, 0.8);
+}
+
+.core-pulse {
+  position: absolute;
+
+  inset: 10px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(57, 214, 255, 0.4);
+
+  animation: corePulse 3s ease-out infinite;
+}
+
+.core-pulse-two {
+  animation-delay: 1.5s;
+}
+
+@keyframes corePulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   NODES
+   ========================================================= */
+
+.constellation-nodes {
+  position: absolute;
+
+  inset: 0;
+
+  transform-style: preserve-3d;
+
+  z-index: 30;
+}
+
+.constellation-node {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 86px;
+  height: 86px;
+
+  margin: 0;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(120, 102, 255, 0.7);
+
+  background: radial-gradient(
+    circle at 35% 30%,
+    rgba(83, 87, 170, 0.32),
+    rgba(5, 14, 38, 0.96) 68%
+  );
+
+  color: white;
+
+  cursor: pointer;
+
+  transform-style: preserve-3d;
+
+  transition:
+    width 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    height 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.35s ease,
+    border-color 0.35s ease;
+
+  z-index: 40;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.28),
+    inset 0 0 18px rgba(91, 85, 255, 0.12);
+
+  will-change: transform;
+}
+
+.constellation-node:hover,
+.constellation-node.node-active {
+  width: 104px;
+  height: 104px;
+
+  border-color: rgba(91, 220, 255, 1);
+
+  filter: brightness(1.25) drop-shadow(0 0 14px rgba(70, 214, 255, 0.42));
+
+  z-index: 100;
+}
+
+.node-content {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  transform: translateZ(20px);
+
+  pointer-events: none;
+}
+
+.node-icon {
+  font-size: 17px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  text-shadow: 0 0 12px currentColor;
+}
+
+.node-label {
+  font-family: "Syne", sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.02em;
+
+  opacity: 0.9;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   NODE COLORS
+   ========================================================= */
+
+.node-cyan {
+  color: #42dcff;
+
+  border-color: rgba(57, 218, 255, 0.72);
+}
+
+.node-violet {
+  color: #9b70ff;
+
+  border-color: rgba(143, 92, 255, 0.72);
+}
+
+.node-purple {
+  color: #b68cff;
+
+  border-color: rgba(169, 111, 255, 0.72);
+}
+
+.node-green {
+  color: #39e0a2;
+
+  border-color: rgba(48, 218, 160, 0.72);
+}
+
+.node-orange {
+  color: #ff9d38;
+
+  border-color: rgba(255, 148, 44, 0.72);
+}
+
+/* =========================================================
+   NODE GLOW
+   ========================================================= */
+
+.node-glow {
+  position: absolute;
+
+  inset: -12px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+
+  opacity: 0.05;
+
+  filter: blur(13px);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.constellation-node:hover .node-glow,
+.constellation-node.node-active .node-glow {
+  opacity: 0.24;
+
+  transform: scale(1.15);
+}
+
+/* =========================================================
+   NODE ORBIT RING
+   ========================================================= */
+
+.node-orbit-ring {
+  position: absolute;
+
+  inset: -7px;
+
+  border-radius: 50%;
+
+  border: 1px dashed currentColor;
+
+  opacity: 0.22;
+
+  transition: opacity 0.35s ease;
+
+  animation: nodeOrbit 8s linear infinite;
+}
+
+.constellation-node:hover .node-orbit-ring,
+.constellation-node.node-active .node-orbit-ring {
+  opacity: 0.75;
+}
+
+@keyframes nodeOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.node-active-indicator {
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  right: 9px;
+  top: 9px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+
+  box-shadow: 0 0 10px currentColor;
+
+  animation: indicatorPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes indicatorPulse {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.constellation-status {
+  position: absolute;
+
+  left: 50%;
+  bottom: 6px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  min-width: 190px;
+
+  padding: 8px 12px;
+
+  border: 1px solid rgba(98, 102, 180, 0.28);
+
+  border-radius: 999px;
+
+  background: rgba(4, 12, 30, 0.78);
+
+  backdrop-filter: blur(14px);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+
+  z-index: 150;
+
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #39e0a2;
+
+  box-shadow: 0 0 10px rgba(57, 224, 162, 0.9);
+
+  animation: statusPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.status-text {
+  font-size: 9px;
+
+  color: rgba(211, 218, 238, 0.78);
+
+  letter-spacing: 0.06em;
+}
+
+.status-signal {
+  margin-left: auto;
+
+  font-size: 8px;
+
+  color: #39e0a2;
+
+  letter-spacing: 0.14em;
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   TOOLTIP
+   ========================================================= */
+
+.constellation-tooltip {
+  position: absolute;
+
+  top: 50%;
+  left: calc(50% + 105px);
+
+  width: 190px;
+
+  display: flex;
+
+  gap: 10px;
+
+  padding: 14px;
+
+  border: 1px solid rgba(115, 95, 255, 0.4);
+
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(12, 21, 49, 0.95),
+    rgba(6, 14, 34, 0.94)
+  );
+
+  backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(97, 78, 255, 0.12);
+
+  transform: translateY(-50%) translateX(8px);
+
+  animation: tooltipIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+
+  z-index: 200;
+
+  pointer-events: none;
+}
+
+@keyframes tooltipIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(20px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0) scale(1);
+  }
+}
+
+.tooltip-accent {
+  width: 3px;
+
+  min-height: 48px;
+
+  border-radius: 999px;
+
+  flex-shrink: 0;
+
+  background: #9b70ff;
+
+  box-shadow: 0 0 12px currentColor;
+}
+
+.tooltip-accent.cyan {
+  background: #42dcff;
+}
+
+.tooltip-accent.violet {
+  background: #9b70ff;
+}
+
+.tooltip-accent.purple {
+  background: #b68cff;
+}
+
+.tooltip-accent.green {
+  background: #39e0a2;
+}
+
+.tooltip-accent.orange {
+  background: #ff9d38;
+}
+
+.tooltip-eyebrow {
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+
+  color: rgba(154, 164, 201, 0.65);
+
+  margin-bottom: 4px;
+}
+
+.tooltip-title {
+  font-family: "Syne", sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  color: #ffffff;
+
+  margin-bottom: 5px;
+}
+
+.tooltip-description {
+  font-size: 9px;
+
+  line-height: 1.55;
+
+  color: rgba(190, 201, 226, 0.72);
+}
+
+/* =========================================================
+   HINT
+   ========================================================= */
+
+.constellation-hint {
+  position: absolute;
+
+  right: 2px;
+  bottom: -14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: rgba(139, 151, 190, 0.52);
+
+  font-size: 8px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.constellation-wrapper:hover .constellation-hint {
+  color: rgba(139, 205, 255, 0.75);
+
+  transform: translateY(-3px);
+}
+
+.hint-cursor {
+  color: #54dfff;
+
+  animation: hintPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .constellation-wrapper {
+    width: 500px;
+    height: 500px;
+  }
+
+  .constellation-scene {
+    transform: scale(0.92);
+  }
+}
+
+@media (max-width: 900px) {
+  .constellation-wrapper {
+    width: 460px;
+    height: 470px;
+  }
+
+  .constellation-scene {
+    transform: scale(0.82);
+  }
+
+  .constellation-tooltip {
+    left: calc(50% + 80px);
+  }
+}
+
+@media (max-width: 640px) {
+  .constellation-wrapper {
+    width: 100%;
+    height: 420px;
+
+    margin-top: 20px;
+  }
+
+  .constellation-scene {
+    transform: scale(0.68);
+  }
+
+  .constellation-tooltip {
+    left: 50%;
+    top: auto;
+    bottom: 45px;
+
+    width: 180px;
+
+    transform: translateX(-50%);
+  }
+
+  .constellation-status {
+    bottom: 0;
+  }
+
+  .constellation-hint {
+    display: none;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .constellation-wrapper *,
+  .constellation-wrapper *::before,
+  .constellation-wrapper *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+  .constellation-scene {
+    transition: none;
+  }
+}
