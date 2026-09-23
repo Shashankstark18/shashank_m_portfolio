@@ -35,3 +35,4 @@ export const languages = [
   { language: "Hindi", proficiency: "Fluent" },
   { language: "Kannada", proficiency: "Native" },
 ];
+

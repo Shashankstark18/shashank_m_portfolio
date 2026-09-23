@@ -1638,7 +1638,7 @@ ${formData.message}`)}`;
               </div>
 
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.78rem', lineHeight: 1.55, margin: 0 }}>
-                Actively looking for roles in AI/ML, Full-Stack Development, and Salesforce.
+                Actively looking for roles in Full-Stack Development, Python/Django, Java/Spring Boot, and SAP.
               </p>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginTop: '0.2rem' }}>
@@ -1694,7 +1694,7 @@ ${formData.message}`)}`;
                   marginTop: '0.35rem',
                 }}
               >
-                &mdash; VARSHINI
+                &mdash; SHASHANK M
               </div>
             </div>
 

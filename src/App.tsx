@@ -9,6 +9,7 @@ import ExperienceSection from './sections/ExperienceSection';
 import ProjectsSection   from './sections/ProjectsSection';
 import SystemsSection    from './sections/SystemsSection';
 import EducationSection  from './sections/EducationSection';
+import AchievementsSection from './sections/AchievementsSection';
 import ContactSection    from './sections/ContactSection';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <ProjectsSection />
           <SystemsSection />
           <EducationSection />
+          <AchievementsSection />
           <ContactSection />
         </main>
         <Footer />

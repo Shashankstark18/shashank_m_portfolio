@@ -1,28 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Award, BookOpen, Users, Globe, CheckCircle2 } from 'lucide-react';
 import { achievements, languages } from '../data/achievements';
 
 export default function AchievementsSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.12 }
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
 
   const icons: Record<string, React.ReactNode> = {
     'research-publication': <BookOpen size={20} color="#A78BFA" />,
@@ -413,3 +394,4 @@ export default function AchievementsSection() {
     </section>
   );
 }
+
