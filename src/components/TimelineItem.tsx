@@ -2,17 +2,17 @@ import type { Experience } from '../types';
 import TechChip from './TechChip';
 
 const TYPE_LABELS: Record<Experience['type'], string> = {
-  'full-time':  'Full-Time',
+  'full-time': 'Full-Time',
   'internship': 'Internship',
-  'freelance':  'Freelance',
-  'contract':   'Contract',
+  'freelance': 'Freelance',
+  'contract': 'Contract',
 };
 
 const TYPE_COLORS: Record<Experience['type'], string> = {
-  'full-time':  '#A78BFA',
+  'full-time': '#A78BFA',
   'internship': '#22D3EE',
-  'freelance':  '#F59E0B',
-  'contract':   '#F59E0B',
+  'freelance': '#F59E0B',
+  'contract': '#F59E0B',
 };
 
 interface Props {
@@ -29,7 +29,7 @@ export default function TimelineItem({ exp, isLast }: Props) {
       <div className="flex flex-col items-center flex-shrink-0">
         <div
           className="w-3 h-3 rounded-full mt-1.5 flex-shrink-0 ring-4"
-          style={{ background: color, ringColor: `${color}30` }}
+          style={{ background: color, boxShadow: `0 0 0 4px ${color}30` }}
         />
         {!isLast && (
           <div
