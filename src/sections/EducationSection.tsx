@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './css/EducationSection.css';
+import { education, certifications } from '../data/education';
 
 /* =========================================================
    ICONS
@@ -201,62 +202,35 @@ function IconFlag({
   );
 }
 
-function IconExternal({ size = 14 }: { size?: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-      <polyline points="15 3 21 3 21 9" />
-      <line x1="10" y1="14" x2="21" y2="3" />
-    </svg>
-  );
-}
-
 /* =========================================================
-   SALESFORCE LOGO
+   CREDENTIAL LOGO
 ========================================================= */
 
-function SalesforceCloudLogo({
-  width = 50,
-  height = 34,
+function CredentialBadgeLogo({
+  text,
+  color = '#22D3EE',
 }: {
-  width?: number;
-  height?: number;
+  text: string;
+  color?: string;
 }) {
   return (
-    <div className="salesforce-logo-wrap">
-      <svg
-        width={width}
-        height={height}
-        viewBox="0 0 85 58"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M36.1 11.2C39.8 4.3 47.1 0 55.2 0C66.8 0 76.5 8.9 77.8 20.3C82 21.8 85 25.8 85 30.5C85 36.6 80.1 41.5 74 41.5H16C7.2 41.5 0 34.3 0 25.5C0 17 6.6 9.9 15.1 9.5C18.8 3.7 25.1 0 32.2 0C33.5 0 34.8 0.2 36.1 0.5V11.2Z"
-          fill="#00A1E0"
-        />
-        <text
-          x="42"
-          y="26"
-          fill="white"
-          fontSize="10"
-          fontWeight="800"
-          fontStyle="italic"
-          fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-          textAnchor="middle"
-        >
-          salesforce
-        </text>
-      </svg>
+    <div
+      style={{
+        width: 44,
+        height: 44,
+        borderRadius: 10,
+        background: `${color}15`,
+        border: `1px solid ${color}40`,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontWeight: 800,
+        fontSize: '0.8rem',
+        color,
+        fontFamily: 'Syne, sans-serif',
+      }}
+    >
+      {text}
     </div>
   );
 }
@@ -388,12 +362,10 @@ interface CertCardProps {
   logo: React.ReactNode;
   issuer: string;
   title: string;
-  desc: string;
+  desc?: string;
   chips: string[];
   status: string;
   statusColor: string;
-  hasExternalLink?: boolean;
-  wide?: boolean;
 }
 
 function CertCard({
@@ -404,11 +376,9 @@ function CertCard({
   chips,
   status,
   statusColor,
-  hasExternalLink = false,
-  wide = false,
 }: CertCardProps) {
   return (
-    <article className={`cert-card ${wide ? 'cert-card-wide' : ''}`}>
+    <article className="cert-card">
       <div className="cert-card-shine" />
 
       <div className="hud-corner hud-top-left" />
@@ -442,9 +412,11 @@ function CertCard({
         </span>
       </div>
 
-      <p className="cert-description">
-        {desc}
-      </p>
+      {desc && (
+        <p className="cert-description">
+          {desc}
+        </p>
+      )}
 
       <div className="cert-bottom">
         <div className="cert-chips">
@@ -455,18 +427,6 @@ function CertCard({
             />
           ))}
         </div>
-
-        {hasExternalLink && (
-          <a
-            href="https://www.salesforce.com/trailblazer/varshinimu85ucblkvtns"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="credential-link"
-            aria-label={`Verify ${title}`}
-          >
-            <IconExternal size={15} />
-          </a>
-        )}
       </div>
     </article>
   );
@@ -502,22 +462,30 @@ export default function EducationSection() {
     return () => observer.disconnect();
   }, []);
 
-  const eduCourses = [
-    'Data Structures',
-    'Algorithms',
-    'Operating Systems',
-    'DBMS',
-    'AI / ML',
-    'Web Development',
-  ];
+  const certLogos: Record<string, { text: string; color: string }> = {
+    'cert-java-fullstack': { text: 'BES', color: '#34D399' },
+    'cert-azure-openai': { text: 'MSFT', color: '#38BDF8' },
+    'cert-django': { text: 'DJ', color: '#A78BFA' },
+    'cert-sql-dbms': { text: 'SQL', color: '#F59E0B' },
+  };
+
+  const certDescriptions: Record<string, string> = {
+    'cert-java-fullstack':
+      'Comprehensive full stack engineering program covering Java, Spring Boot, microservices architecture, and REST API development.',
+    'cert-azure-openai':
+      'Cloud AI service fundamentals covering Azure OpenAI deployments, service integration, and cloud architecture patterns.',
+    'cert-django':
+      'Hands-on web development specialization focusing on Python, Django web framework, ORM, authentication, and application performance.',
+    'cert-sql-dbms':
+      'Database management systems covering relational schema design, advanced SQL querying, indexing, and transactional integrity.',
+  };
 
   return (
     <section
       ref={sectionRef}
       id="education"
       aria-label="Education and Certifications"
-      className={`education-section ${visible ? 'education-visible' : ''
-        }`}
+      className={`education-section ${visible ? 'education-visible' : ''}`}
     >
       {/* Ambient background */}
       <div className="education-ambient education-ambient-one" />
@@ -547,10 +515,8 @@ export default function EducationSection() {
             </h2>
 
             <p className="education-subtitle">
-              Continuous learning to build meaningful solutions.
-              <br />
-              My academic background and certifications that have
-              shaped my technical journey.
+              Academic foundation in computer applications and verified
+              technical certifications in full-stack, cloud, and database engineering.
             </p>
 
           </div>
@@ -598,7 +564,7 @@ export default function EducationSection() {
           <div className="subsection-line" />
 
           <span className="subsection-badge">
-            Academic Background
+            Academic Degrees
           </span>
 
         </div>
@@ -609,81 +575,78 @@ export default function EducationSection() {
 
         <div className="education-row">
 
-          {/* EDUCATION CARD */}
+          {/* EDUCATION CARDS (MCA & BCA) */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.4rem' }}>
+            {education.map((edu, idx) => (
+              <article
+                key={edu.id}
+                className={`education-card reveal reveal-${idx + 3}`}
+                data-card-type="education"
+              >
+                <div className="education-card-glow" />
 
-          <article className="education-card reveal reveal-3" data-card-type="education">
+                <div className="card-hud card-hud-tl" />
+                <div className="card-hud card-hud-br" />
 
-            <div className="education-card-glow" />
+                {/* Timeline */}
+                <div className="education-timeline">
+                  <div className="timeline-icon">
+                    <IconGradCap
+                      color={idx === 0 ? '#22D3EE' : '#A78BFA'}
+                      size={23}
+                    />
+                  </div>
 
-            <div className="card-hud card-hud-tl" />
-            <div className="card-hud card-hud-br" />
+                  <div className="timeline-line" />
+                </div>
 
-            {/* Timeline */}
+                {/* Content */}
+                <div className="education-content">
+                  <div className="education-meta">
+                    <span className="education-period">
+                      {edu.period}
+                    </span>
 
-            <div className="education-timeline">
+                    <span className="education-status">
+                      <span />
+                      {idx === 0 ? 'Master of Computer Applications' : 'Bachelor of Computer Applications'}
+                    </span>
+                  </div>
 
-              <div className="timeline-icon">
-                <IconGradCap
-                  color="#22D3EE"
-                  size={23}
-                />
-              </div>
+                  <h3>
+                    {edu.degree}
+                  </h3>
 
-              <div className="timeline-line" />
+                  <div className="education-institution">
+                    {edu.institution}
+                  </div>
 
-            </div>
+                  <div className="education-location">
+                    {edu.location}
+                  </div>
 
-            {/* Content */}
+                  <p className="education-description">
+                    {idx === 0
+                      ? 'Postgraduate specialization focused on advanced software engineering, algorithmic problem solving, and machine learning.'
+                      : 'Undergraduate foundation covering core computing principles, database management systems, operating systems, and web technologies.'}
+                  </p>
 
-            <div className="education-content">
-
-              <div className="education-meta">
-
-                <span className="education-period">
-                  2022 – May 2026
-                </span>
-
-                <span className="education-status">
-                  <span />
-                  Ongoing
-                </span>
-
-              </div>
-
-              <h3>
-                B.E. / B.Tech – Computer Science &amp;
-                Engineering
-              </h3>
-
-              <div className="education-institution">
-                Cambridge Institute of Technology North Campus
-              </div>
-
-              <div className="education-location">
-                Bengaluru, Karnataka (VTU)
-              </div>
-
-              <p className="education-description">
-                Pursuing a strong foundation in software
-                engineering, data structures, AI/ML, and
-                full-stack development.
-              </p>
-
-              <div className="education-chips">
-                {eduCourses.map((course) => (
-                  <Chip
-                    key={course}
-                    label={course}
-                  />
-                ))}
-              </div>
-
-            </div>
-
-          </article>
+                  {edu.coursework && (
+                    <div className="education-chips">
+                      {edu.coursework.map((course) => (
+                        <Chip
+                          key={course}
+                          label={course}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
 
           {/* ACADEMIC SNAPSHOT */}
-
           <aside className="snapshot-card reveal reveal-4" data-card-type="snapshot">
 
             <div className="snapshot-heading">
@@ -703,35 +666,35 @@ export default function EducationSection() {
 
               <SnapCell
                 icon={
-                  <IconCalendar
-                    color="#A78BFA"
+                  <IconUniversity
+                    color="#22D3EE"
                     size={18}
                   />
                 }
-                value="8.34"
-                label="CGPA (out of 10)"
+                value="MCA"
+                label="Master's Degree (2023–2024)"
               />
 
               <SnapCell
                 icon={
                   <IconLayers
-                    color="#22D3EE"
-                    size={18}
-                  />
-                }
-                value="CSE"
-                label="Specialization"
-              />
-
-              <SnapCell
-                icon={
-                  <IconUniversity
                     color="#A78BFA"
                     size={18}
                   />
                 }
-                value="VTU"
-                label="University"
+                value="BCA"
+                label="Bachelor's Degree (2019–2022)"
+              />
+
+              <SnapCell
+                icon={
+                  <IconCalendar
+                    color="#38BDF8"
+                    size={18}
+                  />
+                }
+                value="SSIT"
+                label="Sri Siddhartha Inst. of Tech"
               />
 
               <SnapCell
@@ -741,18 +704,18 @@ export default function EducationSection() {
                     size={18}
                   />
                 }
-                value="May 2026"
-                label="Expected Graduation"
+                value="IRJMETS"
+                label="Published Research (2023)"
               />
 
             </div>
 
             <div className="snapshot-footer">
-              USN: 1CD22CS174
+              SSIT TUMKUR
               <span>•</span>
-              CAMBRIDGE NORTH
+              SESHADRIPURAM
               <span>•</span>
-              CGPA: 8.34/10
+              FULL STACK &amp; ENTERPRISE
             </div>
 
           </aside>
@@ -792,86 +755,27 @@ export default function EducationSection() {
 
         <div className="certification-grid" aria-label="Professional certifications">
 
-          <div className="reveal reveal-6">
-
-            <CertCard
-              logo={
-                <SalesforceCloudLogo
-                  width={50}
-                  height={34}
-                />
-              }
-              issuer="SALESFORCE TRAILHEAD"
-              title="Apex Callouts Superbadge"
-              desc="Demonstrated skills in making external API callouts from Apex and handling responses securely."
-              chips={[
-                'Salesforce',
-                '2025',
-              ]}
-              status="Completed"
-              statusColor="#34D399"
-              hasExternalLink
-            />
-
-          </div>
-
-          <div className="reveal reveal-7">
-
-            <CertCard
-              logo={
-                <SalesforceCloudLogo
-                  width={50}
-                  height={34}
-                />
-              }
-              issuer="SALESFORCE TRAILHEAD"
-              title="Salesforce Trailhead Ranger"
-              desc="Achieved Ranger rank on Trailhead with 100+ badges and 50K+ points, completing hands-on superbadges and modules."
-              chips={[
-                'Salesforce',
-                'Ranger',
-                '100+ Badges',
-                '50K+ Pts',
-              ]}
-              status="Completed"
-              statusColor="#34D399"
-              hasExternalLink
-            />
-
-          </div>
-
-        </div>
-
-        {/* =================================================
-            ADDITIONAL CERTIFICATIONS
-        ================================================= */}
-
-        <div className="additional-cert reveal reveal-8" data-card-type="additional-cert">
-
-          <CertCard
-            logo={
-              <div className="award-logo">
-                <IconAwardRibbon
-                  color="#A78BFA"
-                  size={22}
+          {certifications.map((cert, index) => {
+            const logoInfo = certLogos[cert.id] || { text: 'CERT', color: '#38BDF8' };
+            return (
+              <div key={cert.id} className={`reveal reveal-${index + 6}`}>
+                <CertCard
+                  logo={
+                    <CredentialBadgeLogo
+                      text={logoInfo.text}
+                      color={logoInfo.color}
+                    />
+                  }
+                  issuer={cert.issuer.toUpperCase()}
+                  title={cert.title}
+                  desc={certDescriptions[cert.id] || ''}
+                  chips={cert.chips || [cert.issuer, cert.year || '2023']}
+                  status={cert.status || 'Verified'}
+                  statusColor={cert.statusColor || '#34D399'}
                 />
               </div>
-            }
-            issuer="OTHER CERTIFICATIONS"
-            title="Agentblazer Champion 2026 & Expeditioner Rank"
-            desc="Recognized as Agentblazer Champion 2026 for AI Agents & Salesforce expertise; continuous learning in RAG, backend, and cloud architectures."
-            chips={[
-              'Agentblazer 2026',
-              'Expeditioner',
-              'Generative AI',
-              'RAG Pipelines',
-              'Python / ML',
-              'Full Stack',
-            ]}
-            status="In Progress"
-            statusColor="#38BDF8"
-            wide
-          />
+            );
+          })}
 
         </div>
 

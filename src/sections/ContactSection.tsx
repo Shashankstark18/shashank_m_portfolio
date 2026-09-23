@@ -13,6 +13,14 @@ function IconMail({ size = 18, color = 'currentColor' }: { size?: number; color?
   );
 }
 
+function IconPhone({ size = 18, color = 'currentColor' }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+  );
+}
+
 function IconUser({ size = 16, color = '#64748B' }: { size?: number; color?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -112,37 +120,37 @@ function HologramOrbitVisual() {
     {
       id: 1,
       title: 'Email',
-      sub: 'varshini0235@gmail.com',
+      sub: 'virtashashank303@gmail.com',
       icon: <IconMail size={18} color="#FFFFFF" />,
       className: 'holo-node-email',
       action: () => {
-        window.location.href = 'mailto:varshini0235@gmail.com';
+        window.location.href = 'mailto:virtashashank303@gmail.com';
       },
     },
     {
       id: 2,
       title: 'LinkedIn',
-      sub: 'linkedin.com/in/varshini-m-25349527b',
+      sub: 'linkedin.com/in/shashank-m (pending)',
       icon: <IconLinkedIn size={17} />,
       className: 'holo-node-linkedin',
       action: () => {
-        window.open('https://www.linkedin.com/in/varshini-m-25349527b', '_blank', 'noopener,noreferrer');
+        window.open('https://linkedin.com/in/shashank-m-placeholder', '_blank', 'noopener,noreferrer');
       },
     },
     {
       id: 3,
       title: 'GitHub',
-      sub: 'github.com/varshini2304',
+      sub: 'github.com/shashank-m (pending)',
       icon: <IconGitHub size={17} />,
       className: 'holo-node-github',
       action: () => {
-        window.open('https://github.com/varshini2304', '_blank', 'noopener,noreferrer');
+        window.open('https://github.com/shashank-m-placeholder', '_blank', 'noopener,noreferrer');
       },
     },
     {
       id: 4,
       title: 'Code & Projects',
-      sub: 'Interactive Repos',
+      sub: 'Verified Projects',
       icon: <IconCodeBrackets size={18} />,
       className: 'holo-node-code',
       action: () => {
@@ -908,7 +916,7 @@ export default function ContactSection() {
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoUrl = `mailto:varshini0235@gmail.com?subject=${encodeURIComponent(formData.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Name: ${formData.name}
+    const mailtoUrl = `mailto:virtashashank303@gmail.com?subject=${encodeURIComponent(formData.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Name: ${formData.name}
 
 Message:
 ${formData.message}`)}`;
@@ -1107,8 +1115,7 @@ ${formData.message}`)}`;
               maxWidth: '620px',
             }}
           >
-            Reach out for engineering roles, collaboration, or just to talk about RAG pipelines<br />
-            and Salesforce.
+            Interested in full-stack development, enterprise applications, or software engineering? Let&apos;s connect.
           </p>
         </div>
 
@@ -1375,7 +1382,7 @@ ${formData.message}`)}`;
                 </h3>
               </div>
 
-              {/* 3 Contact Channels */}
+              {/* Contact Channels */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.15rem' }}>
                 {/* 1. Email */}
                 <div
@@ -1411,14 +1418,14 @@ ${formData.message}`)}`;
                         Email
                       </div>
                       <div style={{ color: 'var(--text-secondary)', fontSize: '0.78rem' }}>
-                        varshini0235@gmail.com
+                        virtashashank303@gmail.com
                       </div>
                     </div>
                   </div>
 
                   <button
                     type="button"
-                    onClick={() => copyToClipboard('varshini0235@gmail.com', 'email')}
+                    onClick={() => copyToClipboard('virtashashank303@gmail.com', 'email')}
                     title="Copy email"
                     style={{
                       background: 'transparent',
@@ -1433,7 +1440,63 @@ ${formData.message}`)}`;
                   </button>
                 </div>
 
-                {/* 2. LinkedIn */}
+                {/* 2. Phone */}
+                <div
+                  className="contact-channel"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '0.65rem 0.5rem',
+                    borderRadius: '8px',
+                    transition: 'background 0.2s',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+                    <div
+                      className="contact-icon"
+                      style={{
+                        width: '38px',
+                        height: '38px',
+                        borderRadius: '9px',
+                        background: '#059669',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#FFFFFF',
+                        flexShrink: 0,
+                      }}
+                    >
+                      <IconPhone size={18} color="#FFFFFF" />
+                    </div>
+                    <div>
+                      <div style={{ color: 'var(--text-primary)', fontWeight: 700, fontSize: '0.86rem' }}>
+                        Phone
+                      </div>
+                      <div style={{ color: 'var(--text-secondary)', fontSize: '0.78rem' }}>
+                        +91-8217853221
+                      </div>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => copyToClipboard('+91-8217853221', 'phone')}
+                    title="Copy phone number"
+                    style={{
+                      background: 'transparent',
+                      border: 'none',
+                      cursor: 'pointer',
+                      padding: '0.4rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
+                    {copiedKey === 'phone' ? <IconCheck size={16} /> : <IconCopy size={16} />}
+                  </button>
+                </div>
+
+                {/* 3. LinkedIn */}
                 <div
                   className="contact-channel"
                   style={{
@@ -1467,14 +1530,14 @@ ${formData.message}`)}`;
                         LinkedIn
                       </div>
                       <div style={{ color: 'var(--text-secondary)', fontSize: '0.78rem' }}>
-                        linkedin.com/in/varshini-m-25349527b
+                        linkedin.com/in/shashank-m (pending)
                       </div>
                     </div>
                   </div>
 
                   <button
                     type="button"
-                    onClick={() => copyToClipboard('https://www.linkedin.com/in/varshini-m-25349527b', 'linkedin')}
+                    onClick={() => copyToClipboard('https://linkedin.com/in/shashank-m-placeholder', 'linkedin')}
                     title="Copy LinkedIn profile URL"
                     style={{
                       background: 'transparent',
@@ -1489,7 +1552,7 @@ ${formData.message}`)}`;
                   </button>
                 </div>
 
-                {/* 3. GitHub */}
+                {/* 4. GitHub */}
                 <div
                   className="contact-channel"
                   style={{
@@ -1524,14 +1587,14 @@ ${formData.message}`)}`;
                         GitHub
                       </div>
                       <div style={{ color: 'var(--text-secondary)', fontSize: '0.78rem' }}>
-                        github.com/varshini2304
+                        github.com/shashank-m (pending)
                       </div>
                     </div>
                   </div>
 
                   <button
                     type="button"
-                    onClick={() => copyToClipboard('https://github.com/varshini2304', 'github')}
+                    onClick={() => copyToClipboard('https://github.com/shashank-m-placeholder', 'github')}
                     title="Copy GitHub URL"
                     style={{
                       background: 'transparent',

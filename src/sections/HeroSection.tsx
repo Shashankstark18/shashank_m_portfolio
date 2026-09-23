@@ -42,7 +42,7 @@ export default function HeroSection() {
                 className="text-xs font-semibold tracking-[0.25em] uppercase"
                 style={{ color: 'var(--violet-glow)' }}
               >
-                Full-Stack &amp; Applied AI / ML Engineer
+                Full Stack Developer
               </p>
             </div>
 
@@ -52,7 +52,7 @@ export default function HeroSection() {
               style={{ fontFamily: 'Syne, sans-serif' }}
             >
               Hi, I'm{' '}
-              <span className="gradient-text1">Varshini</span>
+              <span className="gradient-text1">Shashank M</span>
             </h1>
 
             {/* Tagline */}

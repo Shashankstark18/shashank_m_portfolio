@@ -1,307 +1,99 @@
-# Varshini — Full-Stack & AI/ML Engineer Portfolio
+# Shashank M — Full Stack Developer Portfolio
 
-> A production-focused developer portfolio showcasing AI/ML systems, full-stack applications, backend engineering, system architecture, and continuous technical learning.
+> Professional portfolio for Shashank M, Full Stack Developer specializing in Python Django, Java, Spring Boot, SAP, and Machine Learning integration.
 
 ## Overview
 
-This portfolio presents the engineering work behind my projects across:
+This portfolio presents the engineering projects and architecture patterns built by Shashank M across:
 
-- AI/ML and Generative AI
-- Retrieval-Augmented Generation (RAG)
-- Full-stack web applications
-- Backend APIs and service architecture
-- Computer vision
-- Frontend and UI engineering
-- System architecture
-- Education and professional certifications
+- Full-Stack Web Development (Python Django, Java, Spring Boot)
+- Machine Learning Model Integration & Predictive Analytics
+- Enterprise Systems (SAP SD, SAP MM, SAP S/4HANA)
+- Database Design & Query Optimization (MySQL, MongoDB, SQL Server, Oracle)
+- Cloud & DevOps Tooling (AWS, Azure, Git, GitHub, Linux)
+- Enterprise System Architecture & Workflows
+- Education, Certifications & Academic Research
 
-The interface uses a dark technical visual system, responsive layouts, interactive project sections, architecture visualizations, and project-focused storytelling.
+The portfolio features a high-end dark technical visual system, responsive layouts, interactive system flows, and project documentation.
 
 ## Featured Projects
 
-### Video-to-Bilingual Work Instruction Agent
+### 01. SAP Sales and Inventory Management System
+- **Category:** SAP / Enterprise Systems
+- **Technologies:** SAP SD, SAP MM, SAP S/4HANA
+- **Date:** January 2024
+- **Overview:** Enterprise sales and inventory management implementation using SAP SD and SAP MM modules. Configured end-to-end Order-to-Cash and Procure-to-Pay processes, managed customer/vendor/material master data, integrated SD and MM for real-time inventory updates, and automated sales order and delivery workflows.
 
-Transforms technical demonstration videos into structured bilingual English/Japanese work instructions.
+### 02. Asthma Prediction Web Application
+- **Category:** Machine Learning / Django
+- **Technologies:** Python, Django, Machine Learning
+- **Date:** 2023
+- **Overview:** ML-integrated Django web application for asthma risk prediction and real-time predictive reporting. Trained ML models integrated with a web interface to provide user-friendly health risk assessments. Research work published in IRJMETS (*International Research Journal of Modernization in Engineering Technology and Science*).
 
-**Pipeline:** Video → transcription → step detection → key-frame extraction → bilingual processing → document grounding → structured instructions.
+### 03. Cyber Cafe Management System
+- **Category:** Web Application
+- **Technologies:** HTML5, CSS3, JavaScript
+- **Date:** August 2023
+- **Overview:** Responsive web application for cyber cafe operations, including customer management, automated billing, real-time session tracking, client-side validation, and search capabilities.
 
-**Technologies:** Python, FastAPI, Whisper, PyTorch, OpenCV, FFmpeg, ChromaDB.
-
-### Internal Document RAG Chatbot
-
-An internal document Q&A system that retrieves relevant information from private documents before generating grounded responses.
-
-**Pipeline:** Documents → extraction → chunking → embeddings → vector storage → semantic retrieval → context grounding → LLM response.
-
-**Technologies:** Python, Streamlit, LangChain, ChromaDB, Sentence Transformers, Gemini.
-
-### StudyEye
-
-Computer-vision application for monitoring student engagement using facial-expression classification and live camera input.
-
-**Technologies:** Python, PyTorch, TensorFlow.js, OpenCV, Flask, React.
-
-### Spring Boot E-Commerce Backend
-
-Backend engineering project focused on REST APIs, authentication, modular services, and maintainable backend architecture.
-
-**Technologies:** Java, Spring Boot, MySQL, JWT, REST APIs.
-
-### Nichi-In Soft PL Monitor
-
-Full-stack market monitoring application for NSE Nifty-50 data with interactive financial dashboards.
-
-**Technologies:** MongoDB, Express.js, React, Node.js, Chart.js.
-
-### NexaCore Technologies Site
-
-Modern frontend experience demonstrating responsive UI engineering, animation, and interactive visual presentation.
-
-**Technologies:** React, Three.js, Tailwind CSS, Framer Motion.
+### 04. Flight Management System
+- **Category:** Desktop / Database Application
+- **Technologies:** Visual Basic, .NET, SQL Server
+- **Date:** May 2021
+- **Overview:** Flight scheduling and passenger reservation system featuring booking management, real-time flight status tracking, SQL Server transaction processing, and rigorous input validation.
 
 ## System Architecture
 
-The portfolio includes a dedicated architecture section explaining recurring patterns used across my applications.
+The portfolio visualizes recurring system workflows:
 
-### General Request Flow
+1. **Django + ML Application Flow:** User → Frontend → Django Application → Business Logic → ML Model → Prediction → Database → Result / Report
+2. **Enterprise Web Application Flow:** Client → Frontend → REST API → Application Services → Database → Response
+3. **SAP Business Process Flow:** Customer Order → Sales Order → Delivery → Billing → Inventory Update
 
-```text
-Client
-  ↓
-Frontend
-  ↓
-API Layer
-  ↓
-Business Logic
-  ├── AI / ML Services
-  └── Data Services
-        ↓
-     Database
-        ↓
-    Structured Response
-```
+## Professional Skills
 
-### RAG Pipeline
+- **Programming Languages:** Python, Java, C, C++, SQL
+- **Backend Technologies:** Django, Spring Boot, REST APIs
+- **Frontend:** HTML5, CSS3, Bootstrap, JavaScript
+- **Databases:** MySQL, MongoDB, SQL Server, Oracle
+- **SAP:** SAP SD, SAP MM, SAP S/4HANA, SAP Cloud ALM, SAP BTP
+- **DevOps & Tools:** Git, GitHub, AWS, Azure, Linux, Unix, VS Code
+- **Other:** Machine Learning, ITIL, DBMS, Agile Development, Cloud Networking
 
-```text
-Documents
-   ↓
-Ingestion
-   ↓
-Text Extraction
-   ↓
-Chunking
-   ↓
-Embedding Generation
-   ↓
-Vector Database
-   ↓
-Similarity Retrieval
-   ↓
-Context Construction
-   ↓
-LLM Generation
-   ↓
-Grounded Response
-```
+## Professional Experience
 
-## Technology Stack
+- **Python Django Full Stack Intern** — MEVI Technologies Pvt. Ltd., Bengaluru (March 2023 – October 2023)
+  - Developed and optimized Python Django web applications.
+  - Improved application performance by 30% through efficient code refactoring and query optimization.
+  - Built an ML-powered asthma prediction application.
+  - Integrated Machine Learning models into web platforms.
+  - Enabled real-time data insights and predictive analytics.
 
-| Area | Technologies |
-| --- | --- |
-| Frontend | React, TypeScript |
-| Styling | Tailwind CSS |
-| Animation | Framer Motion |
-| Build | Vite |
-| AI / ML | Python, PyTorch, OpenCV, Whisper |
-| GenAI / RAG | LangChain, ChromaDB, Sentence Transformers, Gemini |
-| Backend | Node.js, Express.js, FastAPI, Spring Boot |
-| Databases | PostgreSQL, MongoDB, MySQL, ChromaDB |
-| Salesforce | Apex, Trailhead, Apex Callouts |
-| Tools | Git, GitHub, Postman, VS Code |
+## Education & Certifications
 
-## Design & UX
+- **Master of Computer Applications (MCA)** — Sri Siddhartha Institute of Technology, Tumkur (2023 – 2024)
+- **Bachelor of Computer Applications (BCA)** — Seshadripuram Degree College, Tumakuru (2019 – 2022)
+- **Java Full Stack Development** — Besant Technologies (2023)
+- **Azure OpenAI Service** — Microsoft (2024)
+- **Django Web Development** — Online Course (2023)
+- **SQL & DBMS** — Professional Certificate (2023)
 
-The portfolio follows a consistent high-end engineering visual language:
+## Achievements & Leadership
 
-- Dark navy foundation
-- Purple, blue, and cyan accent gradients
-- Subtle technical grid and particle effects
-- High-contrast typography
-- Glass-inspired panels
-- Restrained glow and borders
-- Responsive layouts
-- Purposeful motion
-- Clear information hierarchy
-- Project-first storytelling
-
-The goal is to communicate engineering depth without sacrificing usability.
-
-## Core Features
-
-- Responsive portfolio layout
-- Sticky navigation
-- Section-based navigation
-- Project filtering
-- Project detail interactions
-- Architecture visualization
-- RAG pipeline visualization
-- Technology categorization
-- Education and certification showcase
-- Contact form
-- GitHub and LinkedIn integration
-- Smooth UI transitions
-- Mobile-friendly layout
-- Component-based React architecture
-
-## Project Structure
-
-```text
-portfolio/
-├── public/
-│   ├── images/
-│   └── assets/
-├── src/
-│   ├── components/
-│   │   ├── Navbar/
-│   │   ├── Hero/
-│   │   ├── About/
-│   │   ├── Skills/
-│   │   ├── Experience/
-│   │   ├── Projects/
-│   │   ├── Systems/
-│   │   ├── Education/
-│   │   └── Contact/
-│   ├── data/
-│   │   ├── projects.ts
-│   │   ├── skills.ts
-│   │   ├── experience.ts
-│   │   └── education.ts
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── index.css
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-└── README.md
-```
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- npm, pnpm, or yarn
-- Git
-
-### Installation
-
-```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
-cd YOUR_REPOSITORY
-npm install
-```
-
-### Development
-
-```bash
-npm run dev
-```
-
-The development server runs at:
-
-```text
-http://localhost:5173
-```
-
-### Production
-
-```bash
-npm run build
-npm run preview
-```
-
-## Engineering Principles
-
-### Separation of Concerns
-
-Frontend presentation, API communication, business logic, AI/ML processing, and persistence are treated as separate responsibilities.
-
-### Grounded AI
-
-RAG applications retrieve relevant source context before generation to reduce unsupported responses.
-
-### Reusable Components
-
-Repeated UI patterns are implemented as reusable React components.
-
-### Maintainability
-
-Project, skill, experience, and education data are kept separate from presentation wherever practical.
-
-### Responsive by Default
-
-The interface is designed for desktop, tablet, and mobile experiences.
-
-### Purposeful Motion
-
-Animation is used to communicate hierarchy and interaction rather than visual noise.
-
-## Credentials
-
-The portfolio includes academic and professional learning milestones including:
-
-- B.E. / B.Tech — Computer Science & Engineering
-- Salesforce Trailhead achievements
-- Apex Callouts Superbadge
-- AI/ML and software engineering learning
-
-Where possible, credentials should link to their official verification pages.
+- **Research Publication:** Published *"Asthma Prediction App Using Django"* in IRJMETS
+- **Academic Excellence:** Winner of Technical Aptitude Competition at Sri Siddhartha Institute of Technology
+- **Leadership:** Branch Representative & Cultural Committee Member at SSIT
+- **Languages:** English (Professional), Hindi (Fluent), Kannada (Native)
 
 ## Contact
 
-I’m open to conversations around:
-
-- AI/ML Engineering
-- Generative AI
-- RAG systems
-- Full-stack development
-- Backend engineering
-- Salesforce development
-- Software engineering opportunities
-- Technical collaboration
-
-Replace the following placeholders with your actual links:
-
-```text
-Portfolio: https://your-domain.com
-GitHub:    https://github.com/YOUR_USERNAME
-LinkedIn:  https://www.linkedin.com/in/YOUR_USERNAME
-Email:     your.email@example.com
-```
-
-## Roadmap
-
-- Responsive portfolio foundation
-- Project showcase
-- Technology stack section
-- Experience section
-- System architecture section
-- Education & certifications section
-- Contact section
-- Add verified live project demos
-- Add detailed project case studies
-- Accessibility audit
-- Performance optimization
-- Automated deployment workflow
-
-## License
-
-This repository is primarily a personal portfolio. Source code may be referenced for learning and inspiration, but personal information, branding, assets, project descriptions, and original work should not be reused without permission.
+- **Email:** virtashashank303@gmail.com
+- **Phone:** +91-8217853221
+- **Location:** Bengaluru, India
 
 ---
 
 <p align="center">
-  <strong>Built with React, TypeScript, Tailwind CSS & Framer Motion.</strong><br/>
-  <sub>Design • Develop • Learn • Repeat</sub>
+  <strong>© 2026 Shashank M. All rights reserved.</strong><br/>
+  <sub>Built with React, TypeScript and modern web technologies.</sub>
 </p>

@@ -9,19 +9,9 @@ const timelineMeta: Record<
     accent: "purple" | "amber" | "cyan";
   }
 > = {
-  nichi: {
-    label: "TRAINEE",
-    accent: "purple",
-  },
-
-  avarista: {
-    label: "CONTRACT",
-    accent: "amber",
-  },
-
-  bluestock: {
+  "mevi-technologies": {
     label: "INTERNSHIP",
-    accent: "cyan",
+    accent: "purple",
   },
 };
 
@@ -151,18 +141,6 @@ function ExperienceCard({
 
             <div className="experience-meta">
               <span>{experience.period}</span>
-
-              {experience.id === "nichi" && (
-                <>
-                  <span className="experience-meta-divider">
-                    •
-                  </span>
-
-                  <span>
-                    Training &amp; OJT: Aug 20, 2025 – Sep 11, 2026
-                  </span>
-                </>
-              )}
             </div>
           </div>
 
@@ -264,7 +242,7 @@ export default function ExperienceSection() {
           </h2>
 
           <p className="experience-subtitle">
-            Professional roles — full-time, freelance, and internship.
+            Hands-on full-stack internship experience delivering real-world performance improvements.
           </p>
         </header>
 

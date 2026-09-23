@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./css/SystemsSection.css";
 
 /* ============================================================
@@ -6,218 +6,296 @@ import "./css/SystemsSection.css";
    ============================================================ */
 
 const FLOWS = {
-  general: {
-    key: "general",
-    label: "General Request Flow",
-    badge: "Most Projects",
-    badgeColor: "#22D3EE",
-    desc: "End-to-end flow for most of my full-stack and AI applications",
+  django_ml: {
+    key: "django_ml",
+    label: "Django + ML Application Flow",
+    badge: "ML Integration",
+    badgeColor: "#A78BFA",
+    desc: "End-to-end predictive pipeline integrating trained Machine Learning models into a Django web platform",
     cardDesc:
-      "Used in the Spring Boot e-commerce backend, NichIn-Soft PL Monitor, and Finance Dashboard — clean separation of frontend, API, business logic, and persistence layers.",
-    features: ["Modular", "Scalable", "Secure", "Maintainable"],
+      "Core architecture used in the Asthma Prediction Web Application — handling user inputs, feature preprocessing, ML model inference, database persistence, and predictive reporting.",
+    features: [
+      "Django Backend",
+      "Model Inference",
+      "Predictive Analytics",
+      "Secure Persistence",
+    ],
 
     steps: [
       {
         id: "user",
-        label: "User Request",
-        sub: "Web / Mobile Client",
+        label: "User Input",
+        sub: "Web Client Form",
+        color: "#22D3EE",
+        type: "input",
+      },
+      {
+        id: "frontend",
+        label: "Frontend UI",
+        sub: "HTML / CSS / JS",
+        color: "#8B5CF6",
+        type: "process",
+      },
+      {
+        id: "django",
+        label: "Django App",
+        sub: "Views & Routing",
+        color: "#8B5CF6",
+        type: "process",
+      },
+      {
+        id: "logic",
+        label: "Business Logic",
+        sub: "Feature Preprocessing",
+        color: "#A78BFA",
+        type: "process",
+      },
+      {
+        id: "model",
+        label: "ML Model",
+        sub: "Inference Engine",
+        color: "#A78BFA",
+        type: "ai",
+      },
+      {
+        id: "prediction",
+        label: "Prediction",
+        sub: "Risk Scoring Output",
+        color: "#22D3EE",
+        type: "ai",
+      },
+      {
+        id: "database",
+        label: "Database",
+        sub: "MySQL / Records",
+        color: "#34D399",
+        type: "database",
+      },
+      {
+        id: "report",
+        label: "Result / Report",
+        sub: "Real-Time Health Analytics",
+        color: "#FB923C",
+        type: "output",
+      },
+    ],
+
+    explanations: [
+      {
+        label: "User Input",
+        color: "#22D3EE",
+        desc: "User submits health indicators and symptom data through the responsive web form.",
+      },
+      {
+        label: "Frontend UI",
+        color: "#8B5CF6",
+        desc: "Validates input client-side and transmits structured HTTP POST requests to Django.",
+      },
+      {
+        label: "Django Application",
+        color: "#8B5CF6",
+        desc: "Routes incoming requests, manages sessions, and enforces application security.",
+      },
+      {
+        label: "Business Logic",
+        color: "#A78BFA",
+        desc: "Extracts and pre-processes feature sets for model compatibility.",
+      },
+      {
+        label: "ML Model",
+        color: "#A78BFA",
+        desc: "Executes inference using trained classification models to evaluate risk probability.",
+      },
+      {
+        label: "Prediction",
+        color: "#22D3EE",
+        desc: "Generates risk classifications and predictive confidence scores.",
+      },
+      {
+        label: "Database",
+        color: "#34D399",
+        desc: "Persists patient assessment logs, timestamps, and results for history tracking.",
+      },
+      {
+        label: "Result / Report",
+        color: "#FB923C",
+        desc: "Renders user-friendly, real-time analytics reports with actionable guidance.",
+      },
+    ],
+  },
+
+  enterprise_web: {
+    key: "enterprise_web",
+    label: "Enterprise Web Application Flow",
+    badge: "Web & API Systems",
+    badgeColor: "#22D3EE",
+    desc: "Robust n-tier enterprise web application architecture connecting clients with backend microservices and databases",
+    cardDesc:
+      "Architecture pattern applying clean separation of concerns across responsive frontend clients, RESTful APIs, modular application services, and relational persistence.",
+    features: [
+      "RESTful APIs",
+      "Modular Services",
+      "Relational DBMS",
+      "Scalable Architecture",
+    ],
+
+    steps: [
+      {
+        id: "client",
+        label: "Client Request",
+        sub: "Web Browser",
         color: "#22D3EE",
         type: "input",
       },
       {
         id: "frontend",
         label: "Frontend",
-        sub: "React / Flutter (UI/UX)",
+        sub: "UI & Component Layer",
         color: "#8B5CF6",
         type: "process",
       },
       {
         id: "api",
-        label: "API Layer",
-        sub: "FastAPI / Node.js (HTTP / REST)",
+        label: "REST API",
+        sub: "HTTP Controllers & Auth",
         color: "#8B5CF6",
         type: "process",
       },
       {
         id: "services",
-        label: null,
-        sub: null,
+        label: "App Services",
+        sub: "Business Rules & Logic",
         color: "#A78BFA",
-        type: "group",
+        type: "process",
+      },
+      {
+        id: "database",
+        label: "Database",
+        sub: "MySQL / SQL Server",
+        color: "#34D399",
+        type: "database",
       },
       {
         id: "response",
         label: "Response",
-        sub: "Structured Output (JSON)",
+        sub: "JSON Data & State Update",
         color: "#FB923C",
         type: "output",
       },
     ],
 
-    services: [
-      {
-        label: "Business Logic",
-        sub: "Application Services",
-        color: "#A78BFA",
-        type: "process",
-      },
-      {
-        label: "AI / ML",
-        sub: "LLM / ML Models",
-        color: "#A78BFA",
-        type: "ai",
-      },
-      {
-        label: "Database",
-        sub: "PostgreSQL / ChromaDB",
-        color: "#34D399",
-        type: "database",
-      },
-    ],
-
     explanations: [
       {
-        label: "User Request",
+        label: "Client Request",
         color: "#22D3EE",
-        desc: "User interacts through a web or mobile interface.",
+        desc: "User initiates actions (browsing, session booking, reservations) in the browser.",
       },
       {
         label: "Frontend",
         color: "#8B5CF6",
-        desc: "Handles UI/UX and sends requests to the backend.",
+        desc: "Handles UI state, user validation, and dispatches asynchronous API requests.",
       },
       {
-        label: "API Layer",
+        label: "REST API",
         color: "#8B5CF6",
-        desc: "Manages routing, authentication, and request processing.",
+        desc: "Processes endpoints, validates request payloads, and handles authorization.",
       },
       {
-        label: "Business Logic",
+        label: "App Services",
         color: "#A78BFA",
-        desc: "Core application logic and orchestration.",
-      },
-      {
-        label: "AI / ML",
-        color: "#A78BFA",
-        desc: "Model inference, RAG, or other AI/ML processing when required.",
+        desc: "Implements business workflows, calculations, and transactional operations.",
       },
       {
         label: "Database",
         color: "#34D399",
-        desc: "Stores and retrieves data using PostgreSQL, ChromaDB, etc.",
+        desc: "Stores normalized transactional data with ACID compliance and query indexing.",
       },
       {
         label: "Response",
         color: "#FB923C",
-        desc: "Structured response returned to the user.",
+        desc: "Returns structured JSON data and status codes to update client state seamlessly.",
       },
     ],
   },
 
-  rag: {
-    key: "rag",
-    label: "RAG Pipeline Flow",
-    badge: "AI / RAG Projects",
-    badgeColor: "#A78BFA",
-    desc: "Core architecture for retrieval-augmented generation systems",
+  sap_flow: {
+    key: "sap_flow",
+    label: "SAP Business Process Flow",
+    badge: "Enterprise SAP",
+    badgeColor: "#38BDF8",
+    desc: "Integrated Order-to-Cash and Procure-to-Pay workflow across SAP SD, SAP MM, and S/4HANA",
     cardDesc:
-      "Core architecture in the Internal Document RAG Chatbot and the Video-to-Bilingual Work Instruction Agent — ingest, chunk, embed, retrieve, ground, generate.",
+      "Enterprise workflow pattern demonstrating sales order fulfillment, delivery logistics, invoice billing, and real-time inventory synchronization across SAP modules.",
     features: [
-      "Ingestion",
-      "Vector Search",
-      "Grounded Generation",
-      "Source Linking",
+      "Order-to-Cash",
+      "SAP SD & MM",
+      "Master Data",
+      "Automated Billing",
     ],
 
     steps: [
       {
-        id: "docs",
-        label: "Documents",
-        sub: "PDF / Video / Text",
+        id: "customer_order",
+        label: "Customer Order",
+        sub: "Client Demand & Inquiry",
         color: "#22D3EE",
         type: "input",
       },
       {
-        id: "ingest",
-        label: "Ingest & Parse",
-        sub: "Text / Frame Extraction",
+        id: "sales_order",
+        label: "Sales Order",
+        sub: "SAP SD Processing",
         color: "#8B5CF6",
         type: "process",
       },
       {
-        id: "chunk",
-        label: "Chunk & Embed",
-        sub: "Sentence-Transformers",
-        color: "#8B5CF6",
+        id: "delivery",
+        label: "Delivery Workflow",
+        sub: "Shipping & Goods Issue",
+        color: "#A78BFA",
         type: "process",
       },
       {
-        id: "store",
-        label: "Vector Store",
-        sub: "ChromaDB / FAISS",
+        id: "billing",
+        label: "Billing & Invoice",
+        sub: "Automated Workflows",
+        color: "#22D3EE",
+        type: "process",
+      },
+      {
+        id: "inventory",
+        label: "Inventory Update",
+        sub: "SAP MM & S/4HANA Sync",
         color: "#34D399",
         type: "database",
       },
-      {
-        id: "retrieve",
-        label: "Retrieve",
-        sub: "BM25 + Vector Hybrid",
-        color: "#A78BFA",
-        type: "ai",
-      },
-      {
-        id: "llm",
-        label: "LLM Generate",
-        sub: "Gemini / Groq",
-        color: "#A78BFA",
-        type: "ai",
-      },
-      {
-        id: "output",
-        label: "Grounded Answer",
-        sub: "Structured Output + Sources",
-        color: "#FB923C",
-        type: "output",
-      },
     ],
-
-    services: [],
 
     explanations: [
       {
-        label: "Documents",
+        label: "Customer Order",
         color: "#22D3EE",
-        desc: "Raw source files: PDFs, videos, or plain text corpora.",
+        desc: "Inbound demand received from customer, referencing verified customer master data.",
       },
       {
-        label: "Ingest & Parse",
+        label: "Sales Order",
         color: "#8B5CF6",
-        desc: "Extracts clean text or frames from raw documents.",
+        desc: "Configured in SAP SD: pricing condition determination, credit checks, and order lines.",
       },
       {
-        label: "Chunk & Embed",
-        color: "#8B5CF6",
-        desc: "Splits text into semantic chunks and generates dense vector embeddings.",
+        label: "Delivery Workflow",
+        color: "#A78BFA",
+        desc: "Outbound delivery creation, picking, packing, and posting of Goods Issue (PGI).",
       },
       {
-        label: "Vector Store",
+        label: "Billing & Invoice",
+        color: "#22D3EE",
+        desc: "Automated billing document generation and accounting document posting.",
+      },
+      {
+        label: "Inventory Update",
         color: "#34D399",
-        desc: "Persists embeddings and supports fast similarity search.",
-      },
-      {
-        label: "Retrieve",
-        color: "#A78BFA",
-        desc: "Hybrid BM25 + vector search fetches the most relevant chunks.",
-      },
-      {
-        label: "LLM Generate",
-        color: "#A78BFA",
-        desc: "LLM synthesises a grounded answer using retrieved context.",
-      },
-      {
-        label: "Grounded Answer",
-        color: "#FB923C",
-        desc: "Final response cites source chunks to reduce hallucination.",
+        desc: "Real-time stock ledger synchronization in SAP MM and S/4HANA ensuring inventory accuracy.",
       },
     ],
   },
@@ -451,94 +529,10 @@ function FlowNode({
 }
 
 /* ============================================================
-   GENERAL FLOW
+   LINEAR FLOW DIAGRAM
    ============================================================ */
 
-function GeneralDiagram() {
-  const flow = FLOWS.general;
-
-  const mainNodes = [
-    flow.steps[0],
-    flow.steps[1],
-    flow.steps[2],
-  ];
-
-  return (
-    <div className="flow-diagram flow-diagram--general">
-      {mainNodes.map((node, index) => (
-        <div
-          className="flow-node-wrapper"
-          key={node.id}
-        >
-          <FlowNode
-            node={node}
-            index={index}
-          />
-
-          {index < mainNodes.length - 1 && (
-            <Arrow
-              color={`${node.color}88`}
-            />
-          )}
-        </div>
-      ))}
-
-      <Arrow color="rgba(139,92,246,0.65)" />
-
-      {/* Services */}
-      <div className="services-group">
-        <div className="services-group-label">
-          APPLICATION CORE
-        </div>
-
-        {flow.services.map((service, index) => (
-          <div
-            key={service.label}
-            className="service-node system-reveal-up"
-            style={
-              {
-                "--service-color": service.color,
-                "--service-delay": `${index * 100 + 200}ms`,
-              } as React.CSSProperties
-            }
-          >
-            <div className="service-node-icon">
-              <NodeIcon
-                type={service.type}
-                color={service.color}
-              />
-            </div>
-
-            <div>
-              <div className="service-node-title">
-                {service.label}
-              </div>
-
-              <div className="service-node-sub">
-                {service.sub}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <Arrow color="rgba(251,146,60,0.65)" />
-
-      <FlowNode
-        node={flow.steps[4]}
-        index={4}
-      />
-    </div>
-  );
-}
-
-/* ============================================================
-   RAG FLOW
-   ============================================================ */
-
-function RAGDiagram() {
-  const flow = FLOWS.rag;
-
+function LinearDiagram({ flow }: { flow: (typeof FLOWS)[FlowKey] }) {
   return (
     <div className="flow-diagram flow-diagram--rag">
       {flow.steps.map((node, index) => (
@@ -570,8 +564,8 @@ function Legend() {
   const items = [
     { color: "#22D3EE", label: "Input" },
     { color: "#8B5CF6", label: "Process" },
-    { color: "#A78BFA", label: "AI / ML" },
-    { color: "#34D399", label: "Storage" },
+    { color: "#A78BFA", label: "Logic / Inference" },
+    { color: "#34D399", label: "Database / ERP" },
     { color: "#FB923C", label: "Output" },
   ];
 
@@ -671,9 +665,11 @@ function FlowSummaryCard({
           <div className="summary-card-icon">
             <NodeIcon
               type={
-                flow.key === "general"
-                  ? "process"
-                  : "database"
+                flow.key === "sap_flow"
+                  ? "database"
+                  : flow.key === "django_ml"
+                    ? "ai"
+                    : "process"
               }
               color={flow.badgeColor}
             />
@@ -721,7 +717,7 @@ function FlowSummaryCard({
 
 export default function SystemsSection() {
   const [activeKey, setActiveKey] =
-    useState<FlowKey>("general");
+    useState<FlowKey>("django_ml");
 
   const [visible, setVisible] =
     useState(false);
@@ -821,9 +817,8 @@ export default function SystemsSection() {
             </h2>
 
             <p className="systems-subtitle">
-              Two recurring architectural patterns
-              across my projects — toggle to explore
-              each one.
+              Practical architecture patterns across web applications,
+              ML-integrated systems, and enterprise workflows.
             </p>
           </div>
 
@@ -843,7 +838,7 @@ export default function SystemsSection() {
             </blockquote>
 
             <cite>
-              — VARSHINI
+              — SHASHANK M
             </cite>
           </div>
         </div>
@@ -889,7 +884,7 @@ export default function SystemsSection() {
         =================================================== */}
 
         <div
-          className={`systems-main systems-main--animated ${activeKey === "rag" ? "systems-main--rag" : ""}`}
+          className="systems-main systems-main--animated systems-main--rag"
           key={activeKey}
         >
 
@@ -921,11 +916,7 @@ export default function SystemsSection() {
               role="img"
               aria-label={flow.label}
             >
-              {activeKey === "general" ? (
-                <GeneralDiagram />
-              ) : (
-                <RAGDiagram />
-              )}
+              <LinearDiagram flow={flow} />
             </div>
 
             <Legend />
@@ -971,7 +962,7 @@ export default function SystemsSection() {
             <span className="footer-line" />
 
             <span>
-              Building Intelligent Solutions.
+              Building Scalable &amp; Reliable Solutions.
             </span>
           </div>
 
@@ -979,8 +970,8 @@ export default function SystemsSection() {
             {[
               "DESIGN",
               "DEVELOP",
-              "LEARN",
-              "REPEAT",
+              "OPTIMIZE",
+              "SCALE",
             ].map((word, index) => (
               <span
                 key={word}

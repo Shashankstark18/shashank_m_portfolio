@@ -3,18 +3,18 @@ import "./css/AboutSection.css";
 const buildItems = [
   {
     number: "01",
-    title: "Intelligent systems",
-    description: "RAG · GenAI · computer vision",
+    title: "Scalable Web Applications",
+    description: "Python Django · Java · Spring Boot · REST APIs",
   },
   {
     number: "02",
-    title: "Production software",
-    description: "APIs · databases · React · backend",
+    title: "Enterprise Systems",
+    description: "SAP SD · SAP MM · S/4HANA workflows",
   },
   {
     number: "03",
-    title: "End-to-end products",
-    description: "Architecture → data → interface",
+    title: "ML Integration & Data",
+    description: "Predictive models · MySQL · MongoDB · SQL Server",
   },
 ];
 
@@ -22,22 +22,22 @@ const dossierItems = [
   {
     number: "01",
     label: "CORE",
-    value: "Applied AI / ML + Software Engineering",
+    value: "Full Stack Development + Enterprise Systems",
   },
   {
     number: "02",
-    label: "SYSTEMS",
-    value: "RAG · APIs · Databases · AI workflows",
+    label: "SPECIALIZATION",
+    value: "Django · Spring Boot · SAP · ML Integration",
   },
   {
     number: "03",
     label: "BUILD STYLE",
-    value: "Practical · modular · production-minded",
+    value: "Scalable · modular · performance-optimized",
   },
   {
     number: "04",
-    label: "CURIOSITY",
-    value: "Where engineering craft meets applied ML",
+    label: "FOCUS",
+    value: "Where enterprise reliability meets modern web",
   },
 ];
 
@@ -71,7 +71,7 @@ export default function AboutSection() {
     <section
       ref={sectionRef}
       id="about"
-      aria-label="About Varshini"
+      aria-label="About Shashank M"
       className={`about-section ${visible ? "about-section--visible" : ""
         }`}
     >
@@ -123,16 +123,16 @@ export default function AboutSection() {
 
           {/* Main heading */}
           <h2 className="about-title">
-            Engineered from
+            Engineered for
             <br />
-            <span>Both Worlds.</span>
+            <span>Enterprise &amp; Web.</span>
           </h2>
 
           {/* Intro */}
           <p className="about-description">
-            I build software where reliable engineering meets
-            practical AI — from production APIs and interfaces
-            to RAG and computer vision.
+            Full Stack Developer and MCA graduate with hands-on experience in
+            Python, Django, Java, and Spring Boot, integrating Machine Learning
+            models, and managing SAP enterprise workflows.
           </p>
 
           {/* Divider */}
@@ -190,13 +190,13 @@ export default function AboutSection() {
             {/* Identity */}
             <div className="dossier-identity">
               <div className="dossier-monogram">
-                VM
+                SM
               </div>
 
               <div className="dossier-role">
-                <h3>AI / ML</h3>
+                <h3>FULL STACK</h3>
 
-                <p>FULL-STACK ENGINEERING</p>
+                <p>DEVELOPER &amp; ENTERPRISE</p>
               </div>
             </div>
 
@@ -245,11 +245,11 @@ export default function AboutSection() {
                 </span>
 
                 <h4>
-                  Make the intelligence useful.
+                  Make applications reliable &amp; scalable.
                 </h4>
 
                 <p>
-                  APPLIED · ENGINEERING · 2026
+                  FULL STACK · ENTERPRISE · 2026
                 </p>
               </div>
 

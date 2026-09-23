@@ -1,20 +1,24 @@
 export const profile = {
-  name: "Varshini M",
-  tagline: "Full-Stack Engineer • Applied AI/ML",
+  name: "Shashank M",
+  title: "Full Stack Developer",
+  tagline: "Python Django · Java · Spring Boot · SAP",
   subTagline:
-    "I build production-grade backends, full-stack applications, and AI/ML pipelines — from Salesforce & RAG agents to intelligent computer vision systems.",
+    "Building scalable web applications, ML-integrated solutions, and enterprise systems.",
+  location: "Bengaluru, India",
+  email: "virtashashank303@gmail.com",
+  phone: "+91-8217853221",
   primaryChips: [
-    "AI / ML",
-    "RAG Pipelines",
-    "Java Spring Boot",
-    "React",
-    "TypeScript",
-    "Salesforce",
-    "Python",
+    "Python Django",
+    "Java",
+    "Spring Boot",
+    "SAP SD / MM",
+    "Machine Learning",
+    "MySQL / MongoDB",
+    "AWS / Azure",
   ],
   about: [
-    "I'm a Computer Science & Engineering student at Cambridge Institute of Technology North Campus (VTU, Bengaluru) with an 8.34 CGPA, currently working as a Software Development Engineer Intern – AI / AI-ML Engineer at NICHI-IN Software Solutions.",
-    "Certified Salesforce Trailhead Ranger (100+ Badges, 50K+ Points), Agentblazer Champion 2026, and recipient of the Apex Callouts Superbadge and Expeditioner Rank.",
-    "Passionate about scalable system architectures, RAG conversational agents, enterprise software development, and modern cloud/web applications."
+    "Full Stack Developer and MCA graduate with hands-on experience in Python, Django, Java, and Spring Boot. Skilled in building scalable web applications, integrating Machine Learning models, and working with MySQL, MongoDB, and SQL Server.",
+    "Experienced with enterprise SAP modules including SD, MM, and S/4HANA, configuring Order-to-Cash and Procure-to-Pay workflows, alongside AWS and Azure cloud platforms.",
+    "Passionate about robust backend architecture, data optimization, clean code practices, and delivering dependable end-to-end software solutions.",
   ],
 };

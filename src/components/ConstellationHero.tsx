@@ -14,10 +14,10 @@ type NodeType = {
 
 const nodes: NodeType[] = [
   {
-    id: 'ai',
-    label: 'Generative AI',
-    shortLabel: 'GenAI',
-    description: 'LLMs, RAG pipelines, embeddings and intelligent agents.',
+    id: 'sap',
+    label: 'Enterprise / SAP',
+    shortLabel: 'SAP',
+    description: 'SAP SD, MM, S/4HANA and enterprise workflow configurations.',
     color: 'cyan',
     angle: -90,
     radius: 185,
@@ -27,7 +27,7 @@ const nodes: NodeType[] = [
     id: 'frontend',
     label: 'Frontend',
     shortLabel: 'Frontend',
-    description: 'React, TypeScript and interactive production interfaces.',
+    description: 'HTML5, CSS3, Bootstrap, and JavaScript interfaces.',
     color: 'violet',
     angle: -28,
     radius: 185,
@@ -35,9 +35,9 @@ const nodes: NodeType[] = [
   },
   {
     id: 'database',
-    label: 'Data Systems',
+    label: 'Databases',
     shortLabel: 'Database',
-    description: 'PostgreSQL, MongoDB, vector stores and data pipelines.',
+    description: 'MySQL, MongoDB, SQL Server, and Oracle data persistence.',
     color: 'green',
     angle: 32,
     radius: 185,
@@ -47,7 +47,7 @@ const nodes: NodeType[] = [
     id: 'backend',
     label: 'Backend',
     shortLabel: 'Backend',
-    description: 'REST APIs, Java Spring Boot, Node.js and FastAPI.',
+    description: 'Python Django, Java, Spring Boot, and REST APIs.',
     color: 'orange',
     angle: 90,
     radius: 185,
@@ -55,9 +55,9 @@ const nodes: NodeType[] = [
   },
   {
     id: 'ml',
-    label: 'AI / ML',
-    shortLabel: 'AI/ML',
-    description: 'Machine learning, computer vision and model pipelines.',
+    label: 'Machine Learning',
+    shortLabel: 'ML',
+    description: 'Predictive analytics and ML model integration into web apps.',
     color: 'purple',
     angle: 148,
     radius: 185,
@@ -65,9 +65,9 @@ const nodes: NodeType[] = [
   },
   {
     id: 'cloud',
-    label: 'Cloud & APIs',
-    shortLabel: 'APIs',
-    description: 'Production integrations, services and application workflows.',
+    label: 'Cloud & DevOps',
+    shortLabel: 'Cloud',
+    description: 'AWS, Azure, Git, Linux, and system tooling.',
     color: 'cyan',
     angle: 210,
     radius: 185,
@@ -298,7 +298,7 @@ export default function ConstellationHero() {
 
           <div className="ai-core-inner">
             <div className="ai-core-orbit" />
-            <span className="ai-core-symbol">AI</span>
+            <span className="ai-core-symbol">FS</span>
           </div>
 
           <div className="core-pulse core-pulse-one" />
@@ -346,12 +346,12 @@ export default function ConstellationHero() {
 
                 <span className="node-content">
                   <span className="node-icon">
-                    {node.shortLabel === 'GenAI' && '✦'}
+                    {node.shortLabel === 'SAP' && '✦'}
                     {node.shortLabel === 'Frontend' && '◇'}
                     {node.shortLabel === 'Database' && '◉'}
                     {node.shortLabel === 'Backend' && '⌘'}
-                    {node.shortLabel === 'AI/ML' && '⬡'}
-                    {node.shortLabel === 'APIs' && '↗'}
+                    {node.shortLabel === 'ML' && '⬡'}
+                    {node.shortLabel === 'Cloud' && '↗'}
                   </span>
 
                   <span className="node-label">

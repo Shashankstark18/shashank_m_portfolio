@@ -31,7 +31,7 @@ export default function Footer() {
         }}
       >
         <p style={{ color: 'var(--text-muted)', fontSize: '0.76rem', margin: 0 }}>
-          &copy; {year} Varshini. Built with React, TypeScript, Tailwind CSS &amp; Framer Motion.
+          &copy; 2026 Shashank M. All rights reserved. Built with React, TypeScript and modern web technologies.
         </p>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>

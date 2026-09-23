@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const NAV_ITEMS = [
-  { label: 'About',      href: '#about' },
-  { label: 'Skills',     href: '#skills' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects',   href: '#projects' },
-  { label: 'Systems',    href: '#systems' },
-  { label: 'Education',  href: '#education' },
-  { label: 'Contact',    href: '#contact' },
+  { label: 'About',        href: '#about' },
+  { label: 'Skills',       href: '#skills' },
+  { label: 'Experience',   href: '#experience' },
+  { label: 'Projects',     href: '#projects' },
+  { label: 'Systems',      href: '#systems' },
+  { label: 'Education',    href: '#education' },
+  { label: 'Achievements', href: '#achievements' },
+  { label: 'Contact',      href: '#contact' },
 ];
 
 export default function Navbar() {
@@ -45,7 +46,7 @@ export default function Navbar() {
             className="font-bold text-base tracking-wide transition-colors"
             style={{ fontFamily: 'Syne, sans-serif', color: 'var(--text-primary)' }}
           >
-            Varshini
+            Shashank M
           </span>
         </a>
 
